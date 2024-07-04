@@ -39,10 +39,10 @@ results
 
 Source for dataset :- https://www.kaggle.com/datasets/davidcochran/formula-1-race-data-sqlite
 
-In this project, the following tasks has been performed.
+In this project, the following tasks has been performed using SQLite:-
 
-1.	Query on Drivers and Constructors: Find the name of drivers who have driven for more than one constructor. Display the driver's ID, driver's name, and the number of constructors they have driven for.
-2.	Query on Races and Circuits: Retrieve the details of races that have taken place in the circuit with the longest length. Display the race ID, circuit ID, circuit name, and race date.
+1.	Query on Drivers and Constructors: Find the name of drivers who have driven for more than one constructor. Display the driver's ID, driver's name, and the number of constructors they have driven for. 
+2.	Query on Races and Circuits: Retrieve the details of races that have taken place in the circuit located in each country with the most circuits. Display the race ID, circuit ID, race name, race date, and the country.
 3.	Complex Join on Qualifying and Races: Identify the top 3 fastest qualifying times for each season and the corresponding drivers. Display the season, race ID, driver ID, and the qualifying time.
 4.	Aggregate on Driver Standings: Calculate the average points scored by drivers per season. Display the driver ID, driver name, season, and average points.
 5.	Subquery on Results and Drivers: List the drivers who have never finished a race in the last position. Display the driver ID, driver name, and total races participated in.
@@ -51,6 +51,8 @@ In this project, the following tasks has been performed.
 8.	Complex Query on Lap Times and Races: Find the race with the most number of laps recorded. Display the race ID, race name, circuit ID, and total laps.
 9.	Subquery on Qualifying and Circuits: Identify circuits where the pole position qualifying times are consistently below a specified threshold (e.g., 1 minute 30 seconds). Display the circuit ID, circuit name, and average pole position time.
 10.	JOIN and Aggregate on Results and Constructors: Determine the constructors who have the most race wins. Display the constructor ID, constructor name, and total race wins.
+
+
 
 
 
