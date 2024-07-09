@@ -116,3 +116,20 @@ SELECT p.driverId,
            average_pitstop_time ASC;
 
 -- Question 7 --
+
+SELECT
+    cs.constructorId,
+    c.name,
+    SUM(cs.points) as total_points
+    FROM
+      constructor_standings cs
+    JOIN
+      constructors c ON cs.constructorId = c.constructorId
+    GROUP BY
+      cs.constructorId,
+      c.name
+    ORDER BY
+      total_points DESC;
+
+-- Question 8 --
+
