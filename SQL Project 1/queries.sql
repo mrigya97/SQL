@@ -54,3 +54,23 @@ LIMIT 1                 -- for each country --
    	WHERE rank<=3
         ORDER BY
         year, rank;
+
+-- Question 4 --
+
+ SELECT
+    ds.driverId,
+    d.forename,
+    d.surname,
+    r.year AS season,
+  AVG(ds.points) AS average_points
+  FROM
+    driver_standings ds
+  JOIN
+    races r ON ds.raceId = r.raceId
+  JOIN
+    drivers d ON ds.driverId = d.driverId
+  GROUP BY
+    ds.driverId, d.forename, d.surname, r.year
+  ORDER BY
+    r.year, average_points DESC;
+
