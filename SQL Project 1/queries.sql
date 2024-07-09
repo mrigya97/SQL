@@ -76,6 +76,13 @@ LIMIT 1                 -- for each country --
 
 -- Question 5 --
 
+-- creating index for tables data retrievel --
+
+CREATE INDEX IF NOT EXISTS idx_results_driverI ON results(driverId);
+CREATE INDEX IF NOT EXISTS idx_results_raceId ON results(raceId);
+CREATE INDEX IF NOT EXISTS idx_results_PositionOrder ON results(raceId, positionOrder);
+
+
  SELECT d.driverId,
         d.forename,
         d.surname,
@@ -156,3 +163,68 @@ JOIN (
 
 -- Question 9 --
 
+WITH ConvertedTimes AS(
+ SELECT
+      r.circuitId,
+      q.position,
+      (CAST(SUBSTR(q.q1, 1, INSTR(q.q1, ':')-1) AS INTEGER) * 60 +
+          CAST(SUBSTR(SUBSTR(q.q1, INSTR(q.q1, ':')+1), 1, INSTR(SUBSTR(q.q1, INSTR(q.q1, ':')+1), ':')-1) AS      INTEGER) +
+         CAST(SUBSTR(q.q1, -3) AS FLOAT) / 1000.0) AS q1_seconds,   -- converting q1 into seconds --
+        (CAST(SUBSTR(q.q2, 1, INSTR(q.q2, ':')-1) AS INTEGER) * 60 +
+          CAST(SUBSTR(SUBSTR(q.q2, INSTR(q.q2, ':')+1), 1, INSTR(SUBSTR(q.q2, INSTR(q.q2, ':')+1), ':')-1) AS INTEGER) +
+         CAST(SUBSTR(q.q2, -3) AS FLOAT) / 1000.0) AS q2_seconds,   -- converting q2 into seconds --
+        (CAST(SUBSTR(q.q3, 1, INSTR(q.q3, ':')-1) AS INTEGER) * 60 +
+         CAST(SUBSTR(SUBSTR(q.q3, INSTR(q.q3, ':')+1), 1, INSTR(SUBSTR(q.q3, INSTR(q.q3, ':')+1), ':')-1) AS INTEGER) +
+         CAST(SUBSTR(q.q3, -3) AS FLOAT) / 1000.0) AS q3_seconds     -- converting q3 into seconds --
+ FROM qualifying q
+ JOIN
+      races r ON q.raceId = r.raceId
+ WHERE
+      q.position = 1
+ ),
+    FilteredTimes AS(
+    SELECT
+        circuitId,
+        MIN(q1_seconds, q2_seconds, q3_seconds) AS min_time  -- Finding minimum time value--
+        FROM
+        ConvertedTimes
+        WHERE
+        q1_seconds < 90 OR q2_seconds < 90 OR q3_seconds < 90
+),
+    AveragePoleTimes AS(
+ SELECT
+     circuitId,
+     AVG(min_time) AS avg_pole_time
+     FROM
+     FilteredTimes
+ GROUP By
+      circuitId
+ )
+    SELECT
+       c.circuitId,
+       c.name,
+       apt.avg_pole_time
+       FROM
+       AveragePoleTimes apt
+       JOIN
+       circuits c ON apt.circuitId = c.circuitId;
+
+-- Question 10 --
+
+CREATE INDEX IF NOT EXISTS idx_results_constructorId ON results(constructorId);
+CREATE INDEX IF NOT EXISTS idx_results_PositionOrder ON results(raceId, positionOrder);
+
+SELECT 
+    c.constructorId,
+    c.name,
+    COUNT(r.raceId) AS total_races
+FROM 
+    constructors c
+JOIN 
+    results r ON c.constructorId = r.constructorId
+WHERE 
+    r.positionOrder = 1
+GROUP BY 
+    c.constructorId, c.name
+ORDER BY 
+    total_races DESC;
