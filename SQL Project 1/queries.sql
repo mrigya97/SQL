@@ -74,3 +74,27 @@ LIMIT 1                 -- for each country --
   ORDER BY
     r.year, average_points DESC;
 
+-- Question 5 --
+
+ SELECT d.driverId,
+        d.forename,
+        d.surname,
+        COUNT(r.raceId) AS total_races
+   	FROM drivers d
+   	JOIN results r ON d.driverId = r.driverId
+  	WHERE d.driverId NOT IN (
+	    SELECT last_place.driverId
+	    FROM (
+	      SELECT r2.driverId, r2.raceId, r2.PositionOrder
+	      FROM results r2
+	     JOIN (
+	       SELECT raceId, MAX(positionOrder) AS max_position
+	       FROM results
+	       GROUP BY raceId
+       ) AS max_pos ON r2.raceId = max_pos.raceId
+       AND r2.positionOrder = max_pos.max_position
+      )
+      AS last_place
+ )
+ GROUP BY d.driverId, d.forename, d.surname;
+
