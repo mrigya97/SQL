@@ -34,4 +34,23 @@ SELECT country
 LIMIT 1                 -- for each country --
  ) AS max_circuits_country
 
-  
+-- Question 3 --
+
+ WITH ranked_qualifying_times AS(
+ SELECT
+        s.year,
+        er.driverId,
+	er.raceId,
+	er.time AS qualifying_time,
+	ROW_NUMBER() OVER(PARTITION BY s.year ORDER BY er.time ASC) AS rank -- Divides year column into different seasons --
+	FROM
+	results er
+	JOIN races r ON er.raceId = r.raceId
+	JOIN seasons s  ON r.year = s.year
+ )
+  SELECT
+   	year, driverId, raceId, qualifying_time
+   	FROM ranked_qualifying_times
+   	WHERE rank<=3
+        ORDER BY
+        year, rank;
