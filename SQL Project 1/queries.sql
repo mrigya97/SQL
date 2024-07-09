@@ -98,3 +98,21 @@ LIMIT 1                 -- for each country --
  )
  GROUP BY d.driverId, d.forename, d.surname;
 
+-- Question 6 --
+
+SELECT p.driverId,
+        d.forename,
+        d.surname,
+        AVG(p.milliseconds) AS average_pitstop_time
+        FROM
+          pitstops p
+          JOIN
+           drivers d ON p.driverId = d.driverId
+          GROUP BY
+           p.driverId,
+           d.forename,
+           d.surname
+          ORDER BY
+           average_pitstop_time ASC;
+
+-- Question 7 --
