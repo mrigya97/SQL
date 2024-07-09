@@ -133,3 +133,26 @@ SELECT
 
 -- Question 8 --
 
+SELECT
+    r.raceId,
+    r.name,
+    r.circuitId,
+    lap_counts.total_laps
+FROM
+    races r
+JOIN (
+    SELECT
+        lt.raceId,
+        COUNT(*) AS total_laps
+    FROM
+        laptimes lt
+    GROUP BY
+        lt.raceId
+    ORDER BY
+        total_laps DESC
+    LIMIT 1            -- optional--
+) AS lap_counts ON r.raceId = lap_counts.raceId;
+
+
+-- Question 9 --
+
