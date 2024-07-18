@@ -30,7 +30,7 @@ employeeId(PK) - ID number assigned to each employee,
 employee_name - Names of the employees,
 employee_emailId - Email address of the employee,
 joining_date - Date of joining the company,
-tenure - For how long they are working with the company
+tenure - For how long they are working with the company (in years)
 
 
 Customer:-
