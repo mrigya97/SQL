@@ -17,8 +17,8 @@ The following tasks has been performed:-
 10) Using Simple Join, increase the cashback percent by 3 to those customers whose age is less than 25 and extract details of all the customers (including those whose age is more than 25) Also give the new name to the table, Updated_Customer_details.
 11) From the new table Employee_Details_with_Benefits, Delete the details of those employees who tenure is either less than one year or whose benefit_type is NA.
 12) From the table Customer_Accounts, remove all the rows.
-13) Extract all the data of Ex_Employees.
-14) Delete the table of Ex_Employees.
+13) Extract all the data of Ex_Employee.
+14) Delete the table of Ex_Employee.
 
 
 
