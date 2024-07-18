@@ -69,7 +69,7 @@ Employee_Benefits:-
 benefitId(PK) :- Each employee has been entitled to benefit ID depending on the type of benefits they have chose. One employee can have multiple benefits,
 employeeId(FK) :- One employeeId can have multiple benefits. However each benefit Id is unique. employeeId from Employee Table,
 benefit_type :- Type of benefit employee has chose. Some of the benefits available are :- health insurance, medical insurance, retail discounts, etc. ,
-tenure(FK) :- tenure from Employee Table. Employee who are in a company for less than a year are not eligible for benefits
+tenure(FK) :- tenure from Employee Table. Employees who are in a company for less than a year are not eligible for benefits
 
 
 Ex_Employee:-
