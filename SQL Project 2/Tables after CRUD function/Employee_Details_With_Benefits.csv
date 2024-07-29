@@ -1,0 +1,18 @@
+employeeid,employee_name,employee_emailid,joining_date,tenure,benefitid,benefit_type
+E001,Charmi Desai,cdesai@fincorpez.com,2021-02-01,3,B003,Health Insurance
+E001,Charmi Desai,cdesai@fincorpez.com,2021-02-01,3,B004,Gym Membership
+E002,Suresh Sharma,ssharma@fincorpez.com,2020-06-20,4,B005,Car Lease
+E003,Tina Dixit,tdixit@fincorpez.com,2019-04-12,5,B006,Health Insurance
+E003,Tina Dixit,tdixit@fincorpez.com,2019-04-12,5,B007,Medical Insurance
+E004,Rohit Patel,rpatel@fincorpez.com,2019-12-12,4,B008,Retail Discounts
+E004,Rohit Patel,rpatel@fincorpez.com,2019-12-12,4,B009,Car Lease
+E006,Muhammad Imran,mimran@fincorpez.com,2022-09-02,1,B010,Gym Membership
+E007,Sana Saeed,ssaed@fincorpez.com,2020-03-01,4,B011,Retail Discounts
+E008,Vikram Tiwari,vtiwari@fincorpez.com,2023-03-15,1,B012,Medical Insurance
+E008,Vikram Tiwari,vtiwari@fincorpez.com,2023-03-15,1,B013,Car Lease
+E008,Vikram Tiwari,vtiwari@fincorpez.com,2023-03-15,1,B014,Retail Discounts
+E010,Riya Nair,rnair@fincorpez.com,2018-05-18,6,B016,Medical Insurance
+E010,Riya Nair,rnair@fincorpez.com,2018-05-18,6,B017,Car Lease
+E010,Riya Nair,rnair@fincorpez.com,2018-05-18,6,B018,Retail Discounts
+E010,Riya Nair,rnair@fincorpez.com,2018-05-18,6,B019,Health Insurance
+E011,Deepak Basu,dbasu@fincorpez.com,2021-01-06,3,B020,Medical Insurance
