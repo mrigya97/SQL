@@ -81,5 +81,7 @@ joining_date :- Joining date of the ex-employees,
 leaving_date :- Leaving date from the company of the ex-employees,
 reason_for_leaving :- reason for leaving the company. 
 
+Fincorpez_revised.backup is the database after performing CRUD function.
 
+ER Diagram of the database is before performing CRUD Function.
 
