@@ -1,0 +1,22 @@
+customerid,customer_name,customer_emailid,age,account_no,employeeid
+C001,Mrigya Sharma,mrigya97@gmail.com,26,FC001,E011
+C002,Anushka Rathod,arathod45@gmail.com,25,FC002,E011
+C003,Shrey Patel,shrey_patel@gmail.com,19,FC003,E010
+C004,Lucy Rose,lucyrose@yahoo.com,31,FC004,E010
+C005,Ravish Kumar,ravishk89gmail.com,35,FC005,E010
+C006,Manu Agarwal,magarwal@hotmail.com,20,FC006,E009
+C007,Tia Ghosh,tiaghosh123@gmail.com,24,FC007,E008
+C008,Omar Qureshi,mrqureshi@yahoo.com,28,FC008,E008
+C009,Vicky Sahni,vickys32@gmail.com,30,FC009,E001
+C010,Ayush Shah,ayush_shah@hotmail.com,33,FC010,E001
+C011,Omar Qureshi,mrqureshi@yahoo.com,28,FC011,E002
+C012,Ganesh T,t_ganesh32@gmail.com,22,FC012,E002
+C013,Tia Ghosh,tiaghosh123@gmail.com,24,FC013,E003
+C014,Farhan Abdullah,a_farhan12@gmail.com,27,FC014,E003
+C015,Tia Ghosh,tiaghosh123@gmail.com,24,FC015,E004
+C016,Gurpreet Singh,gurpeet09@gmail.com,29,FC016,E004
+C017,Chandni Arora,chandni337@gmail.com,18,FC017,E005
+C018,Sadaf Mirza,sadafmirza@yahoo.com,23,FC018,E006
+C019,Mukesh Arora,mukesh_arora@gmail.com,24,FC019,E006
+C020,Jainam Desai,jdesai09@hotmail.com,33,FC020,E007
+C021,Shreya Kohli,shreya_k@yahoo.com,34,FC021,E007

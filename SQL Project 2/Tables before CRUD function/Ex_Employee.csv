@@ -1,0 +1,8 @@
+exemployeeid,exemployee_name,exemployee_emailid,joining_date,leaving_date,reason_for_leaving
+EX01,Shrish Thakur,sthakur@fincorpez.com,2020-01-15,2023-04-30,Retirement
+EX02,Tanya Amar,tamar@fincorpez.com,2019-06-01,2022-12-31,Resign
+EX03,Noel George,ngeorge@fincorpez.com,2018-05-15,2021-09-09,Redundancy
+EX04,Parmeet Chandra,pchandra@fincorpez.com,2020-02-02,2021-12-20,Misconduct
+EX05,Aditi Reddy,areddy@fincorpez.com,2021-04-01,2024-02-08,Resign
+EX06,Manvi Shah,mshah@fincorpez.com,2020-07-05,2023-11-20,Sabbatical
+EX07,Sohil Mehta,smehta@fincorpez.com,2018-01-12,2024-01-05,Moved to new city

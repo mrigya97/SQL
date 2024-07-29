@@ -1,0 +1,21 @@
+benefitid,employeeid,benefit_type,tenure
+B001,E005,NA,0
+B002,E009,Health Insurance,0
+B003,E001,Health Insurance,3
+B004,E001,Gym Membership,3
+B005,E002,Car Lease,4
+B006,E003,Health Insurance,5
+B007,E003,Medical Insurance,5
+B008,E004,Retail Discounts,4
+B009,E004,Car Lease,4
+B010,E006,Gym Membership,1
+B011,E007,Retail Discounts,4
+B012,E008,Medical Insurance,1
+B013,E008,Car Lease,1
+B014,E008,Retail Discounts,1
+B015,E009,Medical Insurance,0
+B016,E010,Medical Insurance,6
+B017,E010,Car Lease,6
+B018,E010,Retail Discounts,6
+B019,E010,Health Insurance,6
+B020,E011,Medical Insurance,3
