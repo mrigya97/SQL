@@ -26,22 +26,21 @@ Here are the tables with its column names:-
 
 Employee:-
 
-employeeId(PK) - ID number assigned to each employee,
+employeeid(PK) - ID number assigned to each employee,
 employee_name - Names of the employees,
-employee_emailId - Email address of the employee,
+employee_emailid - Email address of the employee,
 joining_date - Date of joining the company,
 tenure - For how long they are working with the company (in years)
 
 
 Customer:-
 
-customerId(PK) - ID number assigned to each customer,
-customer_nmae - Names of the customer,
-customer_emailId - Email address of the customer,
+customerid(PK) - ID number assigned to each customer,
+customer_name - Names of the customer,
+customer_emailid - Email address of the customer,
 age - Age of the customer,
-membership_type - Type of membership customer bought,
 account_no (FK) - Fincorpez account number of the customer,
-employeeId (FK) - Each customer has been assigned under one employee of the company for the customer support and services. employeeId from       Employee table
+employeeid (FK) - Each customer has been assigned under one employee of the company for the customer support and services. employeeId from       Employee table
 
 
 Customer_Accounts:-
@@ -50,7 +49,7 @@ account_no(PK) - Fincorpez account number of the customer,
 account_name - Name of the bank to which the customer bank account is linked to the Fincorpez debit card,
 membership_id (FK) - membershipId from Membership Table,
 cashback_percent - Percentage of cashback on each transaction which will be made by the customer,
-bankId - Account number of the bank account to which customer has linked their Fincorpez debit card
+bankid - Account number of the bank account to which customer has linked their Fincorpez debit card
 
 
 
@@ -58,16 +57,16 @@ Memberships:-
 
 
 membership_id(PK) :- Each customer has been eassigned the unique membershipId,
-customerId(FK) :- customerId from Customer table,
-membership_type :- One customer is entitled to only one membership. Memberships available are basic, premium and gold
+customerid(FK) :- customerId from Customer table,
+membership_type :- One customer account is entitled to only one membership. Memberships available are basic, premium and gold
 
 
 
 Employee_Benefits:-
 
 
-benefitId(PK) :- Each employee has been entitled to benefit ID depending on the type of benefits they have chose. One employee can have multiple benefits,
-employeeId(FK) :- One employeeId can have multiple benefits. However each benefit Id is unique. employeeId from Employee Table,
+benefitid(PK) :- Each employee has been entitled to benefit ID depending on the type of benefits they have chose. One employee can have multiple benefits,
+employeeid(FK) :- One employeeId can have multiple benefits. However each benefit Id is unique. employeeId from Employee Table,
 benefit_type :- Type of benefit employee has chose. Some of the benefits available are :- health insurance, medical insurance, retail discounts, etc. ,
 tenure(FK) :- tenure from Employee Table. Employees who are in a company for less than a year are not eligible for benefits
 
@@ -75,9 +74,9 @@ tenure(FK) :- tenure from Employee Table. Employees who are in a company for les
 Ex_Employee:-
 
 
-EmployeeId(PK) - ID was assigned to former employees when they were working for the company,
-EmployeeName - Names of the former employees,
-EmployeeEmailID :- Email address of the former employees,
+exemployeeid(PK) - ID was assigned to former employees when they were working for the company,
+exemployee_name - Names of the former employees,
+exemployee_emailid :- Email address of the former employees,
 joining_date :- Joining date of the ex-employees,
 leaving_date :- Leaving date from the company of the ex-employees,
 reason_for_leaving :- reason for leaving the company. 
