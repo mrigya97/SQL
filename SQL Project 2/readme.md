@@ -1,87 +1,144 @@
-A company named FinCorpez is a fintech company specializing in debit cards linked with the bank account of the customers. The customers of this company are between the age of 18 to 35. With each transaction, they get cashbacks. Different customers are entitled to different cashback percent. The debit card can be used for shopping, entertainment, restaurants, petrol pump, travel, etc. Each customer is entitled to membership id. There are three types of membership :- basic, premium and gold. The basic membership has the lowest cashback percent whereas gold membership has the highest cashback percent. The database also contains the names of the current employees and ex-employees. The current employees are entitled to get benefits depending on the tenure with their company. However, those employees who are in the company for less than one year are not eligible for employee benefits.
+# FinCorpez: Fintech Company Database
 
+## Overview
 
+**FinCorpez** is a fintech company that specializes in providing debit cards linked to customers' bank accounts. The company's customers are between the ages of 18 to 35 and are eligible for cashback on each transaction. The cashback percentage varies based on the customer's membership type.
 
-The following tasks has been performed:-
+### Membership Types:
+- **Basic**: Lowest cashback percent.
+- **Premium**: Moderate cashback percent.
+- **Gold**: Highest cashback percent.
 
+The database also includes employee details, including both current and former employees, and provides employee benefits depending on their tenure with the company.
 
-1) Create the database using PostgreSQL and insert the values.
-2) Extract the data of the existing employees working at Fincorpez.
-3) Extract the data from the memberships where the membership type is either premium or gold.
-4) Extract the names of all the customers in alphabetical order.
-5) Extract the total number of customers for each membership type.
-6) Delete the customer details from customer accounts record is more than once, keeping the only the one which was first opened by the particular customer
-7) Using Left Join, create a new table Employee_Details_with_Benefits by joining employee and employee_benefits.
-8) Extract the top 5 customer with highest cashback percent.
-9) Insert 2 more new customer details in Customer, Customer_Accounts and Memberships table.
-10) Using Simple Join, increase the cashback percent by 3 to those customers whose age is less than 25 and extract details of all the customers (including those whose age is more than 25) Also give the new name to the table, Updated_Customer_details.
-11) From the new table Employee_Details_with_Benefits, Delete the details of those employees who tenure is either less than one year or whose benefit_type is NA.
-12) From the table Customer_Accounts, remove all the rows data.
-13) Extract all the data of Ex_Employee.
-14) Delete the table of Ex_Employee.
+---
 
+## Tables in Database
 
+### 1. **Employee**
 
-Here are the tables with its column names:-
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `employeeid` (PK)  | Unique ID assigned to each employee                   |
+| `employee_name`    | Name of the employee                                  |
+| `employee_emailid` | Email address of the employee                         |
+| `joining_date`     | Date the employee joined the company                  |
+| `tenure`           | Number of years the employee has been with the company|
 
-Employee:-
+### 2. **Customer**
 
-employeeid(PK) - ID number assigned to each employee,
-employee_name - Names of the employees,
-employee_emailid - Email address of the employee,
-joining_date - Date of joining the company,
-tenure - For how long they are working with the company (in years)
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `customerid` (PK)  | Unique ID assigned to each customer                   |
+| `customer_name`    | Name of the customer                                  |
+| `customer_emailid` | Email address of the customer                         |
+| `age`              | Age of the customer                                   |
+| `account_no` (FK)  | Fincorpez account number of the customer              |
+| `employeeid` (FK)  | The employee assigned to the customer for support     |
 
+### 3. **Customer_Accounts**
 
-Customer:-
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `account_no` (PK)  | Fincorpez account number of the customer              |
+| `account_name`     | Name of the bank to which the customer’s account is linked |
+| `membership_id` (FK)| Membership ID from the Membership Table              |
+| `cashback_percent` | Cashback percentage for the customer’s transactions  |
+| `bankid`           | Account number of the bank to which the customer’s debit card is linked |
 
-customerid(PK) - ID number assigned to each customer,
-customer_name - Names of the customer,
-customer_emailid - Email address of the customer,
-age - Age of the customer,
-account_no (FK) - Fincorpez account number of the customer,
-employeeid (FK) - Each customer has been assigned under one employee of the company for the customer support and services. employeeId from       Employee table
+### 4. **Memberships**
 
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `membership_id` (PK)| Unique ID for each membership                        |
+| `customerid` (FK)  | Customer ID from the Customer table                  |
+| `membership_type`  | Type of membership (Basic, Premium, Gold)            |
 
-Customer_Accounts:-
+### 5. **Employee_Benefits**
 
-account_no(PK) - Fincorpez account number of the customer,
-account_name - Name of the bank to which the customer bank account is linked to the Fincorpez debit card,
-membership_id (FK) - membershipId from Membership Table,
-cashback_percent - Percentage of cashback on each transaction which will be made by the customer,
-bankid - Account number of the bank account to which customer has linked their Fincorpez debit card
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `benefitid` (PK)   | Unique benefit ID for each employee benefit          |
+| `employeeid` (FK)  | Employee ID from the Employee Table                  |
+| `benefit_type`     | Type of benefits chosen by the employee (e.g., health insurance, medical insurance, retail discounts) |
+| `tenure` (FK)      | Tenure of the employee from the Employee Table       |
 
+### 6. **Ex_Employee**
 
+| Column Name        | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `exemployeeid` (PK)| Unique ID assigned to former employees                |
+| `exemployee_name`  | Name of the former employee                          |
+| `exemployee_emailid`| Email address of the former employee                |
+| `joining_date`     | Date the employee joined the company                  |
+| `leaving_date`     | Date the employee left the company                    |
+| `reason_for_leaving`| Reason the employee left the company                |
 
-Memberships:- 
+---
 
+## Tasks Performed
 
-membership_id(PK) :- Each customer has been eassigned the unique membershipId,
-customerid(FK) :- customerId from Customer table,
-membership_type :- One customer account is entitled to only one membership. Memberships available are basic, premium and gold
+The following tasks were performed using PostgreSQL:
 
+1. **Create Database**  
+   The database was created and values were inserted into tables.
 
+2. **Extract Employee Data**  
+   Extract the data of the existing employees currently working at FinCorpez.
 
-Employee_Benefits:-
+3. **Extract Premium and Gold Membership Data**  
+   Extract data from the `Memberships` table where the membership type is either `premium` or `gold`.
 
+4. **List Customers in Alphabetical Order**  
+   Extract the names of all the customers in alphabetical order.
 
-benefitid(PK) :- Each employee has been entitled to benefit ID depending on the type of benefits they have chose. One employee can have multiple benefits,
-employeeid(FK) :- One employeeId can have multiple benefits. However each benefit Id is unique. employeeId from Employee Table,
-benefit_type :- Type of benefit employee has chose. Some of the benefits available are :- health insurance, medical insurance, retail discounts, etc. ,
-tenure(FK) :- tenure from Employee Table. Employees who are in a company for less than a year are not eligible for benefits
+5. **Count of Customers by Membership Type**  
+   Extract the total number of customers for each membership type.
 
+6. **Delete Duplicate Customer Records**  
+   Delete duplicate customer records in the `Customer_Accounts` table, keeping only the first record for each customer.
 
-Ex_Employee:-
+7. **Create Employee Details with Benefits Table**  
+   Using a Left Join, create a new table `Employee_Details_with_Benefits` by joining the `Employee` and `Employee_Benefits` tables.
 
+8. **Top 5 Customers with Highest Cashback Percent**  
+   Extract the top 5 customers with the highest cashback percentage.
 
-exemployeeid(PK) - ID was assigned to former employees when they were working for the company,
-exemployee_name - Names of the former employees,
-exemployee_emailid :- Email address of the former employees,
-joining_date :- Joining date of the ex-employees,
-leaving_date :- Leaving date from the company of the ex-employees,
-reason_for_leaving :- reason for leaving the company. 
+9. **Insert New Customers**  
+   Insert two new customer details in the `Customer`, `Customer_Accounts`, and `Memberships` tables.
 
-Fincorpez_revised.backup is the database after performing CRUD function.
+10. **Increase Cashback for Customers under 25**  
+   Using a Simple Join, increase the cashback percent by 3 for customers whose age is less than 25. Extract details of all customers and save the results in a new table, `Updated_Customer_Details`.
 
-ER Diagram of the database is before performing CRUD Function.
+11. **Delete Employees with Less than One Year Tenure**  
+   From the `Employee_Details_with_Benefits` table, delete the details of employees with a tenure of less than one year or those whose `benefit_type` is `NA`.
 
+12. **Clear Customer Account Data**  
+   Remove all rows from the `Customer_Accounts` table.
+
+13. **Extract Ex-Employee Data**  
+   Extract all the data of ex-employees.
+
+14. **Delete Ex-Employee Table**  
+   Delete the `Ex_Employee` table after extracting data.
+
+---
+
+## Database Backup
+
+After performing the above CRUD operations, the database was backed up as `Fincorpez_revised.backup`.
+
+---
+
+## ER Diagram
+
+An Entity-Relationship (ER) Diagram is available to illustrate the relationships between tables in the database before the CRUD operations were performed.
+
+---
+
+## Summary of Database Schema
+
+- **Employee** and **Customer** tables are related through the `employeeid` field.
+- **Customer_Accounts** and **Memberships** are linked to the **Customer** table using the `customerid`.
+- **Employee_Benefits** and **Employee** are linked via `employeeid`, and the employee benefits depend on tenure.
+- The **Ex_Employee** table stores the details of former employees, which are managed separately from current employees.
