@@ -1,59 +1,86 @@
-About Dataset
+# Formula 1 Race Data (1950-2017)
 
-Context
+## Context
 
-Formula 1 race data from the years 1950 to 2017. This data set is based on Formula 1 Race Data by ChrisG. As ChrisG indicated, the data was downloaded from http://ergast.com/mrd/ at the conclusion of the 2017 seas
+This dataset contains Formula 1 race data from the years 1950 to 2017. It is based on the Formula 1 Race Data by ChrisG, and was downloaded from [Ergast API](http://ergast.com/mrd/) at the conclusion of the 2017 season.
 
-The data from the original CSV files(export.xlxs) to an SQLite database has been converted
+The original CSV files (export.xlsx) were converted into an SQLite database for easier analysis.
 
-Content
+## Dataset Overview
 
-There two SQLite files:
+There are two SQLite files included in the dataset:
 
-Formula1.sqlite: the entire database, with 13 tables (listed below)
+### 1. **Formula1.sqlite**  
+   - This file contains the entire database, with 13 tables:
 
-Formula1_4tables.sqlite: featuring four tables: races, drivers, circuits, and results
+   - **Tables in Formula1.sqlite**:
+     - `circuits`
+     - `constructor_standings`
+     - `constructor_results`
+     - `constructors`
+     - `driver_standings`
+     - `drivers`
+     - `laptimes`
+     - `pitstops`
+     - `qualifying`
+     - `races`
+     - `results`
+     - `seasons`
+     - `status`
 
-Formula1.sqlite contains these 13 tables:
+### 2. **Formula1_4tables.sqlite**  
+   - This file contains a subset of 4 key tables:
 
-circuits
-constructor_standings
-constructor_results
-constructors
-driver_standings
-drivers
-laptimes
-pitstops
-qualifying
-races
-results
-seasons
-status
+   - **Tables in Formula1_4tables.sqlite**:
+     - `circuits`
+     - `drivers`
+     - `races`
+     - `results`
 
-Formula1_4tables.sqlite contains these 4 tables:
+## Source
 
-circuits
-drivers
-races
-results
+Dataset source: [Kaggle Formula 1 Race Data SQLite](https://www.kaggle.com/datasets/davidcochran/formula-1-race-data-sqlite)
 
-Source for dataset :- https://www.kaggle.com/datasets/davidcochran/formula-1-race-data-sqlite
+## Tasks Performed Using SQLite
 
-In this project, the following tasks has been performed using SQLite:-
+The following queries and analysis were performed on the dataset using SQLite:
 
-1.	Query on Drivers and Constructors: Find the name of drivers who have driven for more than one constructor. Display the driver's ID, driver's name, and the number of constructors they have driven for. 
-2.	Query on Races and Circuits: Retrieve the details of races that have taken place in the circuit located in each country with the most circuits. Display the race ID, circuit ID, race name, race date, and the country.
-3.	Complex Join on Qualifying and Races: Identify the top 3 fastest qualifying times for each season and the corresponding drivers. Display the season, race ID, driver ID, and the qualifying time.
-4.	Aggregate on Driver Standings: Calculate the average points scored by drivers per season. Display the driver ID, driver name, season, and average points.
-5.	Subquery on Results and Drivers: List the drivers who have never finished a race in the last position. Display the driver ID, driver name, and total races participated in.
-6.	Nested Query on Pitstops: Find the drivers with the shortest average pitstop time across all races. Display the driver ID, driver name, and average pitstop time.
-7.	Query with Alias and JOIN on Constructor Standings: Retrieve the constructors with the highest cumulative points across all seasons. Display the constructor ID, constructor name, and total points.
-8.	Complex Query on Lap Times and Races: Find the race with the most number of laps recorded. Display the race ID, race name, circuit ID, and total laps.
-9.	Subquery on Qualifying and Circuits: Identify circuits where the pole position qualifying times are consistently below a specified threshold (e.g., 1 minute 30 seconds). Display the circuit ID, circuit name, and average pole position time.
-10.	JOIN and Aggregate on Results and Constructors: Determine the constructors who have the most race wins. Display the constructor ID, constructor name, and total race wins.
+### 1. **Query on Drivers and Constructors**  
+   - Find the name of drivers who have driven for more than one constructor.  
+   - **Output**: Driver's ID, Driver's name, Number of constructors they have driven for.
 
+### 2. **Query on Races and Circuits**  
+   - Retrieve details of races that have taken place in the circuit located in each country with the most circuits.  
+   - **Output**: Race ID, Circuit ID, Race name, Race date, Country.
 
+### 3. **Complex Join on Qualifying and Races**  
+   - Identify the top 3 fastest qualifying times for each season and the corresponding drivers.  
+   - **Output**: Season, Race ID, Driver ID, Qualifying time.
 
+### 4. **Aggregate on Driver Standings**  
+   - Calculate the average points scored by drivers per season.  
+   - **Output**: Driver ID, Driver name, Season, Average points.
 
+### 5. **Subquery on Results and Drivers**  
+   - List the drivers who have never finished a race in the last position.  
+   - **Output**: Driver ID, Driver name, Total races participated in.
 
+### 6. **Nested Query on Pitstops**  
+   - Find the drivers with the shortest average pitstop time across all races.  
+   - **Output**: Driver ID, Driver name, Average pitstop time.
 
+### 7. **Query with Alias and JOIN on Constructor Standings**  
+   - Retrieve the constructors with the highest cumulative points across all seasons.  
+   - **Output**: Constructor ID, Constructor name, Total points.
+
+### 8. **Complex Query on Lap Times and Races**  
+   - Find the race with the most number of laps recorded.  
+   - **Output**: Race ID, Race name, Circuit ID, Total laps.
+
+### 9. **Subquery on Qualifying and Circuits**  
+   - Identify circuits where the pole position qualifying times are consistently below a specified threshold (e.g., 1 minute 30 seconds).  
+   - **Output**: Circuit ID, Circuit name, Average pole position time.
+
+### 10. **JOIN and Aggregate on Results and Constructors**  
+   - Determine the constructors who have the most race wins.  
+   - **Output**: Constructor ID, Constructor name, Total race wins.
